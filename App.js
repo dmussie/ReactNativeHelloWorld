@@ -1,6 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+
+const Greeting = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <View style={styles.container}>
+      <Text>Hello Danny! Is this thing on?</Text>
+      <Text>You clikced {count} times</Text>
+      <Button 
+      onPress={() => setCount(count + 1)}
+      title="Click Here!"/>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -11,25 +27,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const Greeting = (props) => {
-  return (
-    <View style={styles.container}>
-      <Text>Hello {props.name}! Is this thing on?</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-
-const individualGreets = () => {
-  return (
-    <View style={styles.container}>
-      <Greeting name="Danny" />
-    </View>
-  )
-}
-
-export default individualGreets;
+export default Greeting;
 
 
 
